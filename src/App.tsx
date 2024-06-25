@@ -27,7 +27,7 @@ function App() {
       <Header />
       <div className="container">
         <ItemPreview data={salesData}  />
-        <div className="dataVisContainer">
+        <div className="dataContainer">
           <Table data={salesData.sales} />
         </div>
       </div>
