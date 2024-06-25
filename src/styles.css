@@ -40,11 +40,13 @@ td, th {
 }
 
 th {
-    padding: 24px 36px;
+    padding: 24px 36px 22px 36px;
+    font-weight: 400;
 }
 
 td {
     padding: 12px 36px;
+    color: grey;
 }
 
 td:first-child, th:first-child {
