@@ -32,7 +32,7 @@ export const Table: React.FC<TableProps> = ({ data }) => {
       <tr>
         {HEADERS.map((header, index) => (
           <th key={index} onClick={() => handleSort(header)}>
-            {header +
+            {header.toUpperCase() +
               (sortColumn === header
                 ? sortDirection === "asc"
                   ? " ↑"
@@ -44,14 +44,22 @@ export const Table: React.FC<TableProps> = ({ data }) => {
     );
   };
 
+  const formatCurrency = (value: number) => {
+    return value.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    });
+  };
+
   const renderTableBody = () => {
     return data.map((sale, index) => (
       <tr key={index}>
         <td>{sale.weekEnding}</td>
-        <td>{sale.retailSales}</td>
-        <td>{sale.wholesaleSales}</td>
+        <td>{formatCurrency(sale.retailSales)}</td>
+        <td>{formatCurrency(sale.wholesaleSales)}</td>
         <td>{sale.unitsSold}</td>
-        <td>{sale.retailerMargin}</td>
+        <td>{formatCurrency(sale.retailerMargin)}</td>
       </tr>
     ));
   };

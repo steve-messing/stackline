@@ -1,10 +1,10 @@
-/* Header */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 body {
     margin: 0;
     height: 100%;
     background: #f6f8fa;
-    font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -32,12 +32,19 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+    margin-top: -12px;
 }
 
 td, th {
     border-bottom: 1px solid grey;
     padding: 24px;
+    text-align: right;
+    font-size: 14px;
+}
+
+td:first-child, th:first-child {
     text-align: left;
+    width: 150px;
 }
 
 th:hover {
