@@ -7,20 +7,30 @@ body {
     font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
 }
 
+.container {
+    display: flex; 
+}
+
 .header {
     background-color: #052849;
     padding: 12px;
 }
 
+.dataVisContainer {
+    width: 100%;
+    margin-left: -24px;
+}
+
+
 .box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     background-color: white;
     margin: 24px;
     padding: 24px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+    margin-bottom: 64px;
 }
 
 /* ItemPreview */
@@ -29,4 +39,7 @@ body {
     width: 400px;
     height: 100%;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

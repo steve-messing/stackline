@@ -1,25 +1,40 @@
 import { Reducer } from "redux";
-import { LOAD_SALES_DATA, SalesActionTypes } from "../actions";
+import { SalesActionTypes } from "../actions";
 import { SalesData } from "../interfaces";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchSalesDataThunk } from "../data/api";
 
 export interface SalesState {
   salesData: SalesData | null;
+  loading: boolean;
+  error: string | null;
 }
 
 const initialState: SalesState = {
   salesData: null,
+  loading: false,
+  error: null,
 };
 
-const salesReducer: Reducer<SalesState, SalesActionTypes> = (state = initialState, action: SalesActionTypes): SalesState => {
-  switch (action.type) {
-    case LOAD_SALES_DATA:
-      return {
-        ...state,
-        salesData: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+const salesSlice = createSlice({
+    name: 'sales',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+      builder
+        .addCase(fetchSalesDataThunk.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(fetchSalesDataThunk.fulfilled, (state, action) => {
+          state.salesData = action.payload;
+          state.loading = false;
+        })
+        .addCase(fetchSalesDataThunk.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.error.message || 'Failed to load sales data';
+        });
+    },
+  });
 
-export default salesReducer;
+export default salesSlice.reducer as Reducer<SalesState, SalesActionTypes>;
