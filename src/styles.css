@@ -80,3 +80,13 @@ th:hover {
 .tag:hover {
     background-color: #e9ecef;
 }
+
+.temp {
+    padding: 24px;
+    font-size: 18px;
+    margin: 120px auto;
+    width: 400px;
+    text-align: center;
+    text-justify: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

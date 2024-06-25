@@ -18,9 +18,9 @@ function App() {
     dispatch(fetchSalesDataThunk());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!salesData) return <p>No sales data</p>;
+  if (loading) return <div className="temp">Loading...</div>;
+  if (error) return <div className="temp">Error: {error}</div>;
+  if (!salesData) return <div className="temp">No sales data</div>;
 
   return (
     <div className="App">
