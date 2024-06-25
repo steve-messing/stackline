@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { ItemPreview } from './components/ItemPreview';
 import { Header } from './components/Header';
 import "./styles.css"
-import { Chart } from './components/Chart';
 import { Table } from './components/Table';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from './store';
@@ -29,7 +28,6 @@ function App() {
       <div className="container">
         <ItemPreview data={salesData}  />
         <div className="dataVisContainer">
-          <Chart data={salesData.sales} />
           <Table data={salesData.sales} />
         </div>
       </div>

@@ -9,11 +9,11 @@ export const ItemPreview: React.FC<ItemPreviewProps> = ({ data }) => {
   return (
     <div className="itemPreview box">
       <img src={data.image} alt={data.title} width="250px"></img>
-      <h2>{data.title}</h2>
-      <p>{data.subtitle}</p>
+      <h2 className="title">{data.title}</h2>
+      <p className="subtitle">{data.subtitle}</p>
       <div className="tags">
         {data.tags.map((tag, index) => (
-          <span key={index}>{tag}</span>
+          <span className="tag" key={index}>{tag}</span>
         ))}
       </div>
     </div>
